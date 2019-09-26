@@ -26,7 +26,7 @@ func main() {
 	s.Start()
 	goRoutines = append(goRoutines, s)
 
-	// create 10 pools of go routines to show signal propogation
+	// create 10 threads generating random counts at random intervals
 	for i := 0; i < 10; i++ {
 		count, err := count.NewCounter(i, s)
 		if err != nil {
