@@ -1,6 +1,5 @@
 # go-service-example
 
-# TLDR
 This package shows how to handle multiple threads gracefully using [life](https://github.com/vrecan/life) and [death](https://github.com/vrecan/death)
 
 ## This is the output when running this example service:
