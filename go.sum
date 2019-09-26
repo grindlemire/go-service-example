@@ -1,0 +1,14 @@
+github.com/grindlemire/log v0.0.0-20190208214244-83785d2c2327 h1:/31RFW3aFVcJkOkXIH2VRjTb1vfMhEI9v3Ec5J/Iddc=
+github.com/grindlemire/log v0.0.0-20190208214244-83785d2c2327/go.mod h1:qfiErTDo/iI9Wo9yvPWARKLUvXewxSgA2jfVrGjUWz8=
+github.com/vrecan/death v3.0.1+incompatible h1:hYRRqrdyoUAbymk2KJ8tNHmZFKcVeThRUySCqwC5Itg=
+github.com/vrecan/death v3.0.1+incompatible/go.mod h1:ektTae4lwvcXJ7pytrLb2N0w7mwhzmu+f5vRHYzy33E=
+github.com/vrecan/life v0.0.0-20190321223524-f7536b892b48 h1:0dj3Zsrv3wibfeanPXGCOUHEBXF0MEyTFMMTbzwzruY=
+github.com/vrecan/life v0.0.0-20190321223524-f7536b892b48/go.mod h1:fanaKMdCPXa+DOzcO2vCegJQcpMNH+h5xFLQKOClnLA=
+go.uber.org/atomic v1.4.0 h1:cxzIVoETapQEqDhQu3QfnvXAV4AlzcvUCxkVUFw3+EU=
+go.uber.org/atomic v1.4.0/go.mod h1:gD2HeocX3+yG+ygLZcrzQJaqmWj9AIm7n08wl/qW/PE=
+go.uber.org/multierr v1.1.0 h1:HoEmRHQPVSqub6w2z2d2EOVs2fjyFRGyofhKuyDq0QI=
+go.uber.org/multierr v1.1.0/go.mod h1:wR5kodmAFQ0UK8QlbwjlSNy0Z68gJhDJUG5sjR94q/0=
+go.uber.org/zap v1.10.0 h1:ORx85nbTijNz8ljznvCMR1ZBIPKFn3jQrag10X2AsuM=
+go.uber.org/zap v1.10.0/go.mod h1:vwi/ZaCAaUcBkycHslxD9B2zi4UTXhF60s6SWpuDF0Q=
+gopkg.in/natefinch/lumberjack.v2 v2.0.0 h1:1Lc07Kr7qY4U2YPouBjpCLxpiyxIVoxqXgkXLknAOE8=
+gopkg.in/natefinch/lumberjack.v2 v2.0.0/go.mod h1:l0ndWWf7gzL7RNwBG7wST/UCcT4T24xpD6X8LsfU/+k=
