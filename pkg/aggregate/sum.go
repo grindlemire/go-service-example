@@ -41,7 +41,8 @@ func (s *Sum) run() {
 	}
 }
 
-// Apply applies an integer to the sum in a thread safe manner
+// Apply applies an integer to the sum in a thread safe manner. This is the only function used by other
+// threads (other than close) and is the only function in the interface
 func (s Sum) Apply(i int) (err error) {
 	select {
 	case s.input <- i:

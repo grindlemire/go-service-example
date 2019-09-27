@@ -2,6 +2,12 @@
 
 This package shows how to handle multiple threads gracefully using [life](https://github.com/vrecan/life) and [death](https://github.com/vrecan/death)
 
+
+### The [`pkg/aggregate`](./pkg/aggregate) package contains an aggregator thread that exposes a simple interface for interacting with it in a thread safe way (`Apply`)
+
+### The [`pkg/count`](./pkg/count) package contains a counter defintion that generates random integers at random intervals and sends them to the aggregator
+
+
 ## This is the output when running this example service:
 
 ```
@@ -54,8 +60,3 @@ This package shows how to handle multiple threads gracefully using [life](https:
 2019-09-26T21:59:04.170Z	INFO	count/count.go:44	counter 4 successfully shut down
 2019-09-26T21:59:04.170Z	INFO	go-service-example/main.go:40	successfully shutdown all go routines
 ```
-
-
-## The [`pkg/aggregate`](./pkg/aggregate) package contains an aggregator thread that exposes a simple interface for interacting with it in a thread safe way (`Apply`)
-
-## The [`pkg/count`](./pkg/count) package contains a counter defintion that generates random integers at random intervals and sends them to the aggregator

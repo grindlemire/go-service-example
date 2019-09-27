@@ -21,7 +21,7 @@ type Counter struct {
 	agg Aggregate
 }
 
-// NewCounter creates a new pool of counters
+// NewCounter creates a new counter that generates random counts at random intervals
 func NewCounter(id int, agg Aggregate) (c *Counter, err error) {
 	c = &Counter{
 		Life: life.NewLife(),
@@ -32,6 +32,7 @@ func NewCounter(id int, agg Aggregate) (c *Counter, err error) {
 	return c, nil
 }
 
+// run is the main of the counter goroutine
 func (c Counter) run() {
 	log.Infof("starting counter %d", c.id)
 	randInterval := time.Duration(rand.Intn(10)+1) * time.Second
