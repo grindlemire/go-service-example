@@ -36,6 +36,10 @@ func main() {
 		goRoutines = append(goRoutines, count)
 	}
 
-	d.WaitForDeath(goRoutines...)
+	err = d.WaitForDeath(goRoutines...)
+	if err != nil {
+		log.Fatal("failed to cleanly shut down all go routines")
+	}
+
 	log.Info("successfully shutdown all go routines")
 }

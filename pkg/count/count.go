@@ -8,21 +8,21 @@ import (
 	"github.com/vrecan/life"
 )
 
-// Aggregate is an aggregate interface that we will send counts to
+// Aggregator is an aggregate interface that we will send counts to
 // so they can be aggregated in a thread safe way
-type Aggregate interface {
-	Apply(i int) error
+type Aggregator interface {
+	Aggregate(i int) error
 }
 
 // Counter is a counter generating counts (simulating event based output)
 type Counter struct {
 	id int
 	*life.Life
-	agg Aggregate
+	agg Aggregator
 }
 
 // NewCounter creates a new counter that generates random counts at random intervals
-func NewCounter(id int, agg Aggregate) (c *Counter, err error) {
+func NewCounter(id int, agg Aggregator) (c *Counter, err error) {
 	c = &Counter{
 		Life: life.NewLife(),
 		id:   id,
@@ -41,7 +41,7 @@ func (c Counter) run() {
 		select {
 		case <-c.Done:
 			// simulate a thread that takes a bit to shut down properly
-			time.Sleep(time.Duration(rand.Intn(10)+1) * time.Second)
+			time.Sleep(time.Duration(rand.Intn(5)+1) * time.Second)
 			log.Infof("counter %d successfully shut down", c.id)
 			return
 		case <-generator.C:
@@ -50,7 +50,7 @@ func (c Counter) run() {
 			log.Infof("Counter [%d] generating [%d]", c.id, randCount)
 
 			// Send our count to the aggregate
-			err := c.agg.Apply(randCount)
+			err := c.agg.Aggregate(randCount)
 			if err != nil {
 				log.Warnf("Unable to apply aggregate: %v", err)
 			}
