@@ -38,7 +38,7 @@ func main() {
 
 	err = d.WaitForDeath(goRoutines...)
 	if err != nil {
-		log.Fatal("failed to cleanly shut down all go routines")
+		log.Fatalf("failed to cleanly shut down all go routines: %v", err)
 	}
 
 	log.Info("successfully shutdown all go routines")
