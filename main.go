@@ -28,7 +28,9 @@ func main() {
 
 	// create 10 threads generating random counts at random intervals
 	for i := 0; i < 10; i++ {
-		count, err := count.NewCounter(i, s)
+		count, err := count.NewCounter(i,
+			count.Agg(s),
+		)
 		if err != nil {
 			log.Fatal(err)
 		}

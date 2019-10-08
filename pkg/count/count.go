@@ -21,13 +21,34 @@ type Counter struct {
 	agg Aggregator
 }
 
+// Opt is a configuration function for the functional constructor pattern
+type Opt func(*Counter) error
+
+// Agg configures a counter to use a specific aggregator. Handles errors for configuration
+func Agg(agg Aggregator) Opt {
+	return func(c *Counter) error {
+		c.agg = agg
+		return nil
+	}
+}
+
 // NewCounter creates a new counter that generates random counts at random intervals
-func NewCounter(id int, agg Aggregator) (c *Counter, err error) {
+func NewCounter(id int, opts ...Opt) (c *Counter, err error) {
+	// you can specify defaults here that the functional constructor will overwrite
 	c = &Counter{
 		Life: life.NewLife(),
 		id:   id,
-		agg:  agg,
 	}
+
+	// apply the optional functions and check for errors
+	for _, opt := range opts {
+		err = opt(c)
+		if err != nil {
+			return c, err
+		}
+	}
+
+	// set the function that will be the "main" of this thread
 	c.SetRun(c.run)
 	return c, nil
 }
@@ -35,6 +56,8 @@ func NewCounter(id int, agg Aggregator) (c *Counter, err error) {
 // run is the main of the counter goroutine
 func (c Counter) run() {
 	log.Infof("starting counter %d", c.id)
+
+	// setup our random intervals for generating the count
 	randInterval := time.Duration(rand.Intn(10)+1) * time.Second
 	generator := time.NewTimer(randInterval)
 	for {
